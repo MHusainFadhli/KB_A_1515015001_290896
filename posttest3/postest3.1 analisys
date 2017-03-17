@@ -1,0 +1,37 @@
+predicates
+nondeterm dapat_membeli(symbol, symbol)
+nondeterm orang(symbol)
+nondeterm mobil(symbol)
+nondeterm suka(symbol, symbol)
+dijual(symbol)
+
+clauses
+dapat_membeli(X,Y):-
+orang(X), mobil(Y), suka(X,Y), dijual(Y).
+%X dapat membeli Y, jika X adalah orang, Y adalah mobil, X suka Y , Y dapat dijual.
+
+orang(nur). orang(yudi). orang(dian). orang(heni).
+%clauses di atas mendescripsikan bahwa nur, yudi, dian, dan heni adalah orang dan variable X.
+
+mobil(atoz). mobil(kijang).
+%sedangkan clauses di atas mendescripsikan merek mobil atoz dan merek mobil kijang dari variable Y.
+
+suka(dian, atoz).	suka(yudi, pecel).
+suka(heri buku).	suka(nur, komputer).
+%clauses di atas adalah kesukaan orang2
+
+dijual(kijang). dijual(atoz). dijual(buku).
+%barang yang dijual yang bersangkutan dengan variable Y.
+
+Goal
+dapat_membeli(Siapa, Apa).
+%goal diatas, akan memanggil fakta dapat_membeli, dan akan mencetak hasil Siapa yaitu orang dari variable X, dan Apa yaitu merek mobil dari varible Y.
+
+suka(_, Apa).
+%goal diatas, ini bertujuan untuk melihat apa saja yang di sukai orang2.
+
+suka(Siapa,_).
+%goal diatas, ini bertujuan untuk melihat siapa saja yang menyukai sesuatu.
+
+dapat_membeli(_,Apa).
+%goal ini sama seperti goal perama, haya berbeda siapa yang dapa membeli bisa siapa saja.
